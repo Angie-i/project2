@@ -1,0 +1,33 @@
+/*#include <iostream>
+#include <fstream>
+using namespace std;
+
+
+int main()
+{
+    std::cout << "Hello World!\n";
+    string path = "MyFile.txt";
+    setlocale(LC_ALL, "ru");
+    ofstream fout;
+
+
+    fout.open(path,ofstream::app);
+    
+    //fout.open(path);
+    if (!fout.is_open()) {
+        cout<< "Файл не открылся " << endl;
+    }
+    else {
+        cout <<"Введите число " << endl;
+        int a;
+        cin >> a;
+        fout << a;
+    }
+
+
+    fout.is_open();
+
+
+    return 0;
+}
+*/
