@@ -7,7 +7,7 @@ int main()
 {
     std::cout << "Hello World!\n";
     string path = "MyFile.txt";
-    setlocale(LC_ALL, "ru");
+    setlocale(LC_ALL, "ru");  для русского языка 
     ofstream fout;
 
 
@@ -31,3 +31,140 @@ int main()
     return 0;
 }
 */
+
+
+
+
+
+
+int main()
+{
+    std::cout << "Hello World!\n";  // Выводит приветствие на экран
+
+    string path = "MyFile.txt";  // Задает имя файла для работы
+
+    setlocale(LC_ALL, "ru");  // Устанавливает русскую локаль для корректного отображения кириллицы
+
+    ofstream fout;  // Создает объект класса ofstream для записи в файл
+
+    fout.open(path, ofstream::app);  // Открывает файл в режиме добавления (append)
+    
+    //fout.open(path);  // Закомментированная строка: открытие файла в режиме перезаписи
+
+    if (!fout.is_open()) {  // Проверяет, открылся ли файл успешно
+        cout << "Файл не открылся " << endl;  // Выводит сообщение об ошибке, если файл не открылся
+    }
+    else {
+        cout << "Введите число " << endl;  // Просит пользователя ввести число
+        int a;  // Объявляет переменную для хранения введенного числа
+        cin >> a;  // Считывает введенное пользователем число
+        fout << a;  // Записывает введенное число в файл
+    }
+
+    fout.close();  // Закрывает файл (эта строка должна быть здесь вместо fout.is_open())
+
+    return 0;  // Завершает программу, возвращая 0
+}
+
+
+
+
+Запись в файл
+cpp
+#include <fstream>
+
+ofstream outFile("output.txt");
+if (outFile.is_open()) {
+    outFile << "Текст для записи" << endl;
+    outFile.close();
+}
+
+
+
+Чтение из файла
+cpp
+#include <fstream>
+#include <string>
+
+ifstream inFile("input.txt");
+if (inFile.is_open()) {
+    string line;
+    while (getline(inFile, line)) {
+        cout << line << endl;
+    }
+    inFile.close();
+}
+
+
+
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+
+int main()           чтение цифр из файла и вывод символа  скаждой новой строки 
+{
+    
+    string path = "MyFile.txt";
+    ifstream fin;
+    fin.open(path);
+    setlocale(LC_ALL, "ru");
+    if (!fin.is_open()) {
+        cout << "Файл не открылся " << endl;
+
+    }
+
+    else {
+
+
+        cout << "Файл Открыт!" << endl;
+        char ch;
+        while (fin.get(ch)) {    get- это для символов 
+            cout << ch << endl;
+        }
+    }
+    fin.close();
+    return 0;
+}
+
+
+
+int main()           чтение цифр из файла и вывод символа  скаждой новой строки 
+{
+    
+    string path = "MyFile.txt";
+    ifstream fin;
+    fin.open(path);
+    setlocale(LC_ALL, "ru");
+    if (!fin.is_open()) {
+        cout << "Файл не открылся " << endl;
+
+    }
+
+    else {
+
+
+        cout << "Файл Открыт!" << endl;
+        string str ;
+        while (fin.eof()) {   get- это для символов 
+            fin<< str << endl;
+            cout<< str << endl;
+        }
+    }
+    fin.close();
+    return 0;
+}
+
+
+#include<iostream>
+#include <string.h>
+int main(int argc, char* argv[]) {      
+    int i;
+    for (i = 0; i < argc; i++) {
+        printf("argv[%d]: %s\n", i, argv[i]);
+
+    }
+    return 0;
+}
+
